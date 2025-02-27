@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Travel Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h2>Explore the World with Us</h2>
+            <p>Discover amazing destinations and plan your next adventure.</p>
+        </section>
+        <section id="destinations">
+            <h2>Popular Destinations</h2>
+            <div class="destination">
+                <h3>Bali</h3>
+                <p>Experience the beauty of Bali with its stunning beaches and vibrant culture.</p>
+            </div>
+            <div class="destination">
+                <h3>Paris</h3>
+                <p>Visit the City of Love and enjoy its iconic landmarks and exquisite cuisine.</p>
+            </div>
+            <div class="destination">
+                <h3>Tokyo</h3>
+                <p>Explore the vibrant city of Tokyo with its blend of tradition and modernity.</p>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Travel Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

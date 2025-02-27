@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #00aaff; /* Changed background color to light blue (Traveloka) */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            display: none;
+            position: absolute;
+            width: 100%;
+        }
+
+        .carousel-item.active {
+            display: block;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to TravelAbdi</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="carousel">
+            <div class="carousel-item active">
+                <img src="images/beach.jpg" alt="Beach">
+                <div class="carousel-caption">
+                    <h2>Discover Paradise</h2>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/city.jpg" alt="City">
+                <div class="carousel-caption">
+                    <h2>Explore Cities</h2>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/mountains.jpg" alt="Mountains">
+                <div class="carousel-caption">
+                    <h2>Adventure Awaits</h2>
+                </div>
+            </div>
+        </section>
+        <section id="destinations">
+            <h2>Popular Destinations</h2>
+            <div class="card">
+                <img src="c:\Users\kurai\Downloads\baliwoo.jpg" alt="Bali">
+                <h3>Bali</h3>
+                <p>Experience the beauty of Bali with its stunning beaches and vibrant culture.</p>
+            </div>
+            <div class="card">
+                <img src="c:\Users\kurai\Downloads\OIP.jpg" alt="Paris">
+                <h3>Paris</h3>
+                <p>Visit the City of Love and enjoy its iconic landmarks and exquisite cuisine.</p>
+            </div>
+            <div class="card">
+                <img src="c:\Users\kurai\Downloads\nippom.jpg" alt="Tokyo">
+                <h3>Tokyo</h3>
+                <p>Explore the vibrant city of Tokyo with its blend of tradition and modernity.</p>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contactForm" action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="destination">Choose a destination:</label>
+                <select id="destination" name="destination" required>
+                    <option value="Bali">Bali</option>
+                    <option value="Tokyo">Tokyo</option>
+                    <option value="Paris">Paris</aoption>
+                </select>
+                <button type="submit">Send</button>
+            </form>
+            <div class="thank-you-message" id="thankYouMessage">
+                Thank you for choosing <span id="selectedDestination"></span>!
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Travel Website. All rights reserved.</p>
+    </footer>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const form = document.getElementById('contactForm');
+        const thankYouMessage = document.getElementById('thankYouMessage');
+        const selectedDestination = document.getElementById('selectedDestination');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 3000);
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const destination = document.getElementById('destination').value;
+            selectedDestination.textContent = destination;
+            thankYouMessage.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
